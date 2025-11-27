@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Notifications from "../Notifications";
 import {
-  Bell,
   Search,
   Menu,
   Video,
@@ -80,16 +80,7 @@ const TopToolbar = ({ expanded, onToggleExpand, onSectionChange }: TopToolbarPro
 
         {/* Right: Profile & Actions */}
         <div className="flex items-center gap-2">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="relative hover:bg-primary/10"
-          >
-            <Bell className="w-5 h-5" />
-            <Badge className="absolute -top-1 -right-1 w-5 h-5 p-0 flex items-center justify-center bg-destructive text-xs">
-              12
-            </Badge>
-          </Button>
+          <Notifications />
 
           <Button
             variant="ghost"

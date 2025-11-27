@@ -22,6 +22,7 @@ import DigitalPets from "./pages/DigitalPets";
 import Memberships from "./pages/Memberships";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
+import KAOS from "./pages/KAOS";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +51,7 @@ const App = () => (
           <Route path="/pets" element={<DigitalPets />} />
           <Route path="/memberships" element={<Memberships />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/kaos" element={<KAOS />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
