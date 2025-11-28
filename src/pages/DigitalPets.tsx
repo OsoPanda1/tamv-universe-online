@@ -216,7 +216,7 @@ const DigitalPets = () => {
                   (arc) => (
                     <Button
                       key={arc}
-                      size="xs"
+                      size="sm"
                       variant={
                         filterArchetype === arc ? "default" : "outline"
                       }
