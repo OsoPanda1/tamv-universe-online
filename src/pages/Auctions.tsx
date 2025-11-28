@@ -220,7 +220,7 @@ const Auctions = () => {
                       (cat) => (
                         <Button
                           key={cat}
-                          size="xs"
+                          size="sm"
                           variant={
                             selectedCategory === cat ? "default" : "outline"
                           }
@@ -242,7 +242,7 @@ const Auctions = () => {
                     Ordenar por
                   </span>
                   <Button
-                    size="xs"
+                    size="sm"
                     variant="outline"
                     className="text-xs gap-1"
                     onClick={() => {

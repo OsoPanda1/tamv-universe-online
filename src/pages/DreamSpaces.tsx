@@ -232,7 +232,7 @@ const DreamSpaces = () => {
                 {["Todos", "Personal", "Social", "Evento"].map((m) => (
                   <Button
                     key={m}
-                    size="xs"
+                    size="sm"
                     variant={filterMode === m ? "default" : "outline"}
                     className="text-xs"
                     onClick={() => setFilterMode(m as SpaceMode | "Todos")}

@@ -252,7 +252,7 @@ const Concerts = () => {
                   </span>
                   <div className="flex gap-1">
                     <Button
-                      size="xs"
+                      size="sm"
                       variant={filterAccess === "all" ? "default" : "outline"}
                       className="text-xs"
                       onClick={() => setFilterAccess("all")}
@@ -260,7 +260,7 @@ const Concerts = () => {
                       Todos
                     </Button>
                     <Button
-                      size="xs"
+                      size="sm"
                       variant={filterAccess === "free" ? "default" : "outline"}
                       className="text-xs"
                       onClick={() => setFilterAccess("free")}
@@ -268,7 +268,7 @@ const Concerts = () => {
                       Free
                     </Button>
                     <Button
-                      size="xs"
+                      size="sm"
                       variant={filterAccess === "paid" ? "default" : "outline"}
                       className="text-xs"
                       onClick={() => setFilterAccess("paid")}
@@ -287,7 +287,7 @@ const Concerts = () => {
                     {["Todas", "XR", "Holográfico", "Multisensorial"].map((lvl) => (
                       <Button
                         key={lvl}
-                        size="xs"
+                        size="sm"
                         variant={filterImmersion === lvl ? "default" : "outline"}
                         className="text-xs"
                         onClick={() =>
@@ -306,7 +306,7 @@ const Concerts = () => {
                     Ordenar por
                   </span>
                   <Button
-                    size="xs"
+                    size="sm"
                     variant="outline"
                     className="text-xs gap-1"
                     onClick={() => {

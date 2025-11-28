@@ -235,7 +235,7 @@ const Channels = () => {
                   </span>
                   <div className="flex gap-1">
                     <Button
-                      size="xs"
+                      size="sm"
                       variant={filterAccess === "all" ? "default" : "outline"}
                       className="text-xs"
                       onClick={() => setFilterAccess("all")}
@@ -243,7 +243,7 @@ const Channels = () => {
                       Todos
                     </Button>
                     <Button
-                      size="xs"
+                      size="sm"
                       variant={filterAccess === "free" ? "default" : "outline"}
                       className="text-xs"
                       onClick={() => setFilterAccess("free")}
@@ -251,7 +251,7 @@ const Channels = () => {
                       Free
                     </Button>
                     <Button
-                      size="xs"
+                      size="sm"
                       variant={filterAccess === "paid" ? "default" : "outline"}
                       className="text-xs"
                       onClick={() => setFilterAccess("paid")}
@@ -271,7 +271,7 @@ const Channels = () => {
                       (cat) => (
                         <Button
                           key={cat}
-                          size="xs"
+                          size="sm"
                           variant={filterCategory === cat ? "default" : "outline"}
                           className="text-xs"
                           onClick={() =>
@@ -291,7 +291,7 @@ const Channels = () => {
                     Ordenar por
                   </span>
                   <Button
-                    size="xs"
+                    size="sm"
                     variant="outline"
                     className="text-xs gap-1"
                     onClick={() => {
