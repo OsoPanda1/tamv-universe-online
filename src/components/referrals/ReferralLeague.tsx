@@ -3,12 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Trophy, Users, Gift } from "lucide-react";
 
-interface ReferralLeader {
-  id: string;
-  name: string;
-  invites: number;
-  reward: string;
-}
+import { ReferralLeader } from "@/types/tamv";
 
 interface ReferralLeagueProps {
   leaders: ReferralLeader[];
@@ -21,19 +16,19 @@ export const ReferralLeague = ({
   currentUserRank,
   currentUserInvites = 0,
 }: ReferralLeagueProps) => {
-  const getRewardTier = (invites: number) => {
-    if (invites >= 10000) return { tier: "1 año gratis", color: "bg-yellow-600/90" };
-    if (invites >= 5001) return { tier: "6 meses gratis", color: "bg-purple-600/90" };
-    if (invites >= 3001) return { tier: "4 meses gratis", color: "bg-cyan-600/90" };
-    if (invites >= 1001) return { tier: "2 meses gratis", color: "bg-emerald-600/90" };
-    if (invites >= 500) return { tier: "1 mes gratis", color: "bg-blue-600/90" };
+  const getRewardTier = (referrals: number) => {
+    if (referrals >= 10000) return { tier: "1 año gratis", color: "bg-yellow-600/90" };
+    if (referrals >= 5001) return { tier: "6 meses gratis", color: "bg-purple-600/90" };
+    if (referrals >= 3001) return { tier: "4 meses gratis", color: "bg-cyan-600/90" };
+    if (referrals >= 1001) return { tier: "2 meses gratis", color: "bg-emerald-600/90" };
+    if (referrals >= 500) return { tier: "1 mes gratis", color: "bg-blue-600/90" };
     return { tier: "Sin recompensa", color: "bg-gray-600/90" };
   };
 
-  const progressToNext = (invites: number) => {
+  const progressToNext = (referrals: number) => {
     const tiers = [500, 1001, 3001, 5001, 10000];
-    const nextTier = tiers.find((t) => t > invites) || 10000;
-    return ((invites / nextTier) * 100).toFixed(0);
+    const nextTier = tiers.find((t) => t > referrals) || 10000;
+    return ((referrals / nextTier) * 100).toFixed(0);
   };
 
   return (
@@ -107,7 +102,7 @@ export const ReferralLeague = ({
             </div>
             <div className="flex items-center gap-1 text-sm font-semibold">
               <Users className="w-4 h-4 text-primary" />
-              {leader.invites.toLocaleString()}
+              {leader.referrals.toLocaleString()}
             </div>
           </div>
         ))}
