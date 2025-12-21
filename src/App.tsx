@@ -23,6 +23,8 @@ import Memberships from "./pages/Memberships";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import KAOS from "./pages/KAOS";
+import Auth from "./pages/Auth";
+import DevHub from "./pages/DevHub";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +36,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/devhub" element={<DevHub />} />
           <Route path="/groups" element={<Groups />} />
           <Route path="/channels" element={<Channels />} />
           <Route path="/concerts" element={<Concerts />} />
