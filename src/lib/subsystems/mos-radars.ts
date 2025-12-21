@@ -210,19 +210,14 @@ class EyeOfQuetzalcoatl {
           evidence: text.substring(0, 100),
         });
 
-        switch (severity) {
-          case "critical":
-            safetyScore -= 0.5;
-            break;
-          case "high":
-            safetyScore -= 0.3;
-            break;
-          case "medium":
-            safetyScore -= 0.15;
-            break;
-          case "low":
-            safetyScore -= 0.05;
-            break;
+        if (severity === "critical") {
+          safetyScore -= 0.5;
+        } else if (severity === "high") {
+          safetyScore -= 0.3;
+        } else if (severity === "medium") {
+          safetyScore -= 0.15;
+        } else {
+          safetyScore -= 0.05;
         }
       }
     });
