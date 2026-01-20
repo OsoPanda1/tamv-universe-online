@@ -1,9 +1,12 @@
+import { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { TAMVBootScreen } from "@/components/system/TAMVBootScreen";
 import Index from "./pages/Index";
+import Landing from "./pages/Landing";
 import Groups from "./pages/Groups";
 import Channels from "./pages/Channels";
 import Concerts from "./pages/Concerts";
@@ -28,39 +31,56 @@ import DevHub from "./pages/DevHub";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/devhub" element={<DevHub />} />
-          <Route path="/groups" element={<Groups />} />
-          <Route path="/channels" element={<Channels />} />
-          <Route path="/concerts" element={<Concerts />} />
-          <Route path="/dreamspaces" element={<DreamSpaces />} />
-          <Route path="/auctions" element={<Auctions />} />
-          <Route path="/marketplaces" element={<Marketplaces />} />
-          <Route path="/music" element={<Music />} />
-          <Route path="/wallet" element={<Wallet />} />
-          <Route path="/universidad" element={<Universidad />} />
-          <Route path="/lives" element={<Lives />} />
-          <Route path="/streaming" element={<Streaming />} />
-          <Route path="/videocall" element={<VideoCall />} />
-          <Route path="/isabella" element={<IsabellaChat />} />
-          <Route path="/store" element={<VirtualStore />} />
-          <Route path="/pets" element={<DigitalPets />} />
-          <Route path="/memberships" element={<Memberships />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/kaos" element={<KAOS />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  const [showBoot, setShowBoot] = useState(() => {
+    // Show boot screen only once per session
+    return !sessionStorage.getItem("tamv_booted");
+  });
+
+  const handleBootComplete = () => {
+    sessionStorage.setItem("tamv_booted", "true");
+    setShowBoot(false);
+  };
+
+  if (showBoot) {
+    return <TAMVBootScreen onComplete={handleBootComplete} />;
+  }
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/landing" element={<Landing />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/devhub" element={<DevHub />} />
+            <Route path="/groups" element={<Groups />} />
+            <Route path="/channels" element={<Channels />} />
+            <Route path="/concerts" element={<Concerts />} />
+            <Route path="/dreamspaces" element={<DreamSpaces />} />
+            <Route path="/auctions" element={<Auctions />} />
+            <Route path="/marketplaces" element={<Marketplaces />} />
+            <Route path="/music" element={<Music />} />
+            <Route path="/wallet" element={<Wallet />} />
+            <Route path="/universidad" element={<Universidad />} />
+            <Route path="/lives" element={<Lives />} />
+            <Route path="/streaming" element={<Streaming />} />
+            <Route path="/videocall" element={<VideoCall />} />
+            <Route path="/isabella" element={<IsabellaChat />} />
+            <Route path="/store" element={<VirtualStore />} />
+            <Route path="/pets" element={<DigitalPets />} />
+            <Route path="/memberships" element={<Memberships />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/kaos" element={<KAOS />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
